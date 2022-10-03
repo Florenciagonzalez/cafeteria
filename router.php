@@ -1,6 +1,8 @@
 <?php
     
-    require_once './app/controllers/productos.controller.php';
+    require_once './app/controllers/products.controller.php';
+    require_once './app/controllers/categories.controller.php';
+
 
 
     define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
@@ -15,12 +17,12 @@
 
    
     $prodController = new ProdController();
-
+    
     switch($params[0]){
         case '':
             $prodController->showHome();
             break;
-        case '':
-            
+        case 'detail':
+            $prodController->showDetail($params[1]);
             break;
     }
