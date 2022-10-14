@@ -7,23 +7,24 @@ class ProdView{
 
     function __construct(){
         $this->smarty = new Smarty();
-
     }
 
-
-    function home($products, $categories){
-        $this->smarty->assign('BASE_URL', BASE_URL);
-        $this->smarty->assign('categories', $categories);   
-        $this->smarty->assign('products', $products);   
+    function products($products, $categories){
+        $this->smarty->assign('products', $products);
+        $this->smarty->assign('categories', $categories);
         $this->smarty->display('home.tpl');
-        
     }
 
-    function detail($item, $categories){
-        $this->smarty->assign('item', $item);
-        $this->smarty->assign('categories', $categories);   
+    function detail($item){
+        $this->smarty->assign('item', $item);   
         $this->smarty->display('item.tpl');
 
+    }
+
+    function editProducts($products, $categories){
+        $this->smarty->assign('products', $products);
+        $this->smarty->assign('categories', $categories);
+        $this->smarty->display('editProducts.tpl');
     }
 
 }

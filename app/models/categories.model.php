@@ -17,4 +17,22 @@ class CategoriesModel{
 
         return $categories;
     }
+
+    function delete($id){
+        $query = $this->db->prepare('DELETE FROM categorias WHERE id_categoria =?');
+        $query->execute(array($id));
+    }
+
+    function update($id, $category){
+        $query = $this->db->prepare('UPDATE categorias SET categoria =? WHERE id_categoria =?');
+        $query->execute(array($id, $category));
+        var_dump($query->errorInfo());
+    }
+
+    function add($category){
+        $query = $this->db->prepare('INSERT INTO categorias(categoria) VALUES(?)');
+        $query->execute(array($category));
+    }
+
+
 }

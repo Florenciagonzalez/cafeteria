@@ -19,7 +19,7 @@ body {
     height: 430px ;
 }
 
-h1, h2, .card-title, .card-text, .card-body a, .card-header, aside .list-group-item{
+h1, h2, .card-title, .card-text, .card-body a, .card-header, aside .list-group-item , label{
     color:  #d39c53 ;
 }
 

@@ -1,15 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <base href="{BASE_URL}">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gulp! - Cafetería</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/styles.css">
-    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
-
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark">
@@ -21,25 +9,34 @@
         <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        
-            <li class="nav-item" >
-                <a class="nav-link" aria-current="page" href="">INICIO</a>
-            </li>
-            <li class="nav-item" >
-            <a class="nav-link" aria-current="page" href="#">PRODUCTOS</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="#">LOCALES</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="#">NOSOTROS</a>
-            </li>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            
+                <li class="nav-item" >
+                    <a class="nav-link" aria-current="page" href="">INICIO</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="#">LOCALES</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="#">NOSOTROS</a>
+                </li>
 
-        </ul>
-        <span class="navbar-text">
-            <a class="nav-link" href="#">LOGIN</a>
-        </span>
+                {if !empty($smarty.session.USER_ID)}
+                    <li class="nav-item">
+                    <a class="nav-link" href="products">EDITAR PRODUCTOS</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="categories">EDITAR CATEGORIAS</a>
+                    </li>    
+                {/if}
+            </ul>
+            <span class="navbar-text">
+            {if !empty($smarty.session.USER_ID)}
+                <a class="nav-link" href="logout">LOGOUT</a>
+            {else}
+                <a class="nav-link" href="login">LOGIN</a>
+            {/if}
+            </span>
         </div>
     </div>
     </nav>
