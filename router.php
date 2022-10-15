@@ -1,5 +1,4 @@
 <?php
-    
     require_once './app/controllers/products.controller.php';
     require_once './app/controllers/auth.controller.php';
     require_once './app/controllers/categories.controller.php';
@@ -7,9 +6,6 @@
     define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
     define('PRODUCTS', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/products');
     define('CATEGORIES', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/categories');
-
-
-
 
     if(!empty($_GET['action'])){
         $action = $_GET['action'];

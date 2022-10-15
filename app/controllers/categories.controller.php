@@ -20,14 +20,16 @@ class CategoriesController{
     }
 
     function showCategories(){
-        if($this->authHelper->checkLoggedIn()){
+        $isLogged = $this->authHelper->checkLoggedIn();
+        if($isLogged){
             $categories = $this->model->getAll();
             $this->view->categories($categories); 
         }     
     }
 
     function adminCategory($params){
-        if($this->authHelper->checkLoggedIn()){
+        $isLogged = $this->authHelper->checkLoggedIn();
+        if($isLogged){
             switch($params){
                 case 'delete':
                     $this->deleteCategory();

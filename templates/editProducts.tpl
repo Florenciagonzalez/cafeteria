@@ -1,5 +1,4 @@
 {include file='head.tpl'}
-
 {include file='header.tpl'}
 <div class="container m-5">
   <h2>Agregar un nuevo producto</h2>
@@ -53,8 +52,5 @@
         </div>
       </div>  
   {/foreach}
-
 </div>
- 
-
 {include file='footer.tpl'}

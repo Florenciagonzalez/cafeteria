@@ -19,7 +19,7 @@ class AuthHelper{
         if(!empty($_SESSION['USER_ID'])){
             return true;
         }else{
-            header("Location: " . BASE_URL . 'login'); 
+            header("Location: " . BASE_URL); 
             return false;
         }    
     }

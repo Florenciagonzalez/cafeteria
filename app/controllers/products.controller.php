@@ -31,10 +31,11 @@ class ProdController{
 
     function showFiltered(){
         if(isset($_POST['id'])){
+            $id = $_POST['id'];
             $categories = $this->categoriesModel->getAll();
-            $products = $this->model->filter($_POST['id']);
+            $products = $this->model->filter($id);
             if(empty($products)){
-                $this->view->error('No hay productos disponibles para esta categoria :(' , $categories); 
+                $this->view->error('No hay productos disponibles para esta categoria :('); 
             }else{
                 foreach ($categories as $category) {
                     if($products[0]->id_categoria == $category->id_categoria){

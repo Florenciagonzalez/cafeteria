@@ -4,15 +4,12 @@
     <div class="container-fluid shadow">
         <a class="navbar-brand" href="">  
             <img src="./images/logo.png" alt="Gulp! cafetería" id="logo">
-        </a>
-        
+        </a> 
     </div>
 </nav>
 
-
 <div class="container mt-5 d-flex justify-content-center">
     <form class="form" action="login" method="POST">
-   
         <div class="mb-2">
             <input type="email" name="email" class="form-control form-control-md" placeholder="name@example.com">
         </div>

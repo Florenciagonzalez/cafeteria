@@ -1,6 +1,4 @@
 {include file='head.tpl'}
-
-<link rel="stylesheet" href="./css/tabla.css">
 {include file='header.tpl'}
 <div class="container d-flex justify-content-center m-5">
     <table class="table-dark ">

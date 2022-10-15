@@ -22,8 +22,7 @@ class ProdView{
         $this->smarty->display('filter.tpl');
     }
 
-    function error($error, $categories){
-        $this->smarty->assign('categories', $categories);
+    function error($error){
         $this->smarty->assign('error', $error);
         $this->smarty->display('error.tpl');
     }
