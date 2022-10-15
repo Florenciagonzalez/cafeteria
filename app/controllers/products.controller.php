@@ -1,12 +1,8 @@
 <?php
-
 require_once './app/views/products.view.php';
 require_once './app/models/products.model.php';
 require_once './app/models/categories.model.php';
 require_once './helpers/auth.helper.php';
-
-
-
 
 class ProdController{
     private $view;
@@ -26,23 +22,32 @@ class ProdController{
         $categories = $this->categoriesModel->getAll();
         $products = $this->model->getAll();
          $this->view->products($products, $categories);
-     }
+    }
 
     function showDetail($id){
         $item = $this->model->getItem($id);
         $this->view->detail($item);
     }
 
-    function showFilteredProds(){
-        if(!empty($_POST['id_categoria'])){
-            $products = $this->model->filter($_POST['id_categoria']);
+    function showFiltered(){
+        if(isset($_POST['id'])){
             $categories = $this->categoriesModel->getAll();
-            $this->view->products($products, $categories);
-            header('Location: ' . BASE_URL);
-        }else{
-            $this->showHome();
-        }    
+            $products = $this->model->filter($_POST['id']);
+            if(empty($products)){
+                $this->view->error('No hay productos disponibles para esta categoria :(' , $categories); 
+            }else{
+                foreach ($categories as $category) {
+                    if($products[0]->id_categoria == $category->id_categoria){
+                        $actualCategory = $category->categoria;
+                        $this->view->filtered($products, $categories, $actualCategory); 
+                    }
+                }
+            }
+        }
     }
+
+
+    //Edición de productos para el admin
 
     function showEditProds(){
         $isLogged = $this->authHelper->checkLoggedIn();
@@ -72,13 +77,10 @@ class ProdController{
         }
     }
 
-
     function deleteProduct(){
         $id = $_POST['id'];
         $this->model->delete($id);
         header("Location: " . PRODUCTS);
-
-       
     }
 
     function updateProduct(){
@@ -90,8 +92,6 @@ class ProdController{
             $this->model->update($id, $product, $category, $description);
             header("Location: " . PRODUCTS);
         }
-        
-
     }
 
     function addProduct(){
@@ -101,10 +101,7 @@ class ProdController{
             $description = $_POST['description'];
             $this->model->add($product, $category, $description);
             header("Location: " . PRODUCTS);
-
         }
-        
-
     }
 
 }

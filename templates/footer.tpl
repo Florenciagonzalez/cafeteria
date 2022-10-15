@@ -1,6 +1,6 @@
 
-<footer class="d-flex justify-content-center position-relative bottom-0">
-    <div class="d-flex flex-row mb-3">
+<footer class="d-flex justify-content-center">
+    <div class="d-flex m-3">
         <div class="p-2"><a href="https://www.instagram.com" target="_blank"><img src="images/instagram.png" alt="instagram"></a></div>
         <div class="p-2"><a href="https://twitter.com" target="_blank"><img src="images/twitter.png" alt="twitter"></a></div>
         <div class="p-2"><a href="https://www.facebook.com" target="_blank"><img src="images/facebook.png" alt="facebook"></a></div>

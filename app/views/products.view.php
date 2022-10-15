@@ -15,6 +15,19 @@ class ProdView{
         $this->smarty->display('home.tpl');
     }
 
+    function filtered($products, $categories, $category){
+        $this->smarty->assign('products', $products);
+        $this->smarty->assign('category', $category);
+        $this->smarty->assign('categories', $categories);
+        $this->smarty->display('filter.tpl');
+    }
+
+    function error($error, $categories){
+        $this->smarty->assign('categories', $categories);
+        $this->smarty->assign('error', $error);
+        $this->smarty->display('error.tpl');
+    }
+
     function detail($item){
         $this->smarty->assign('item', $item);   
         $this->smarty->display('item.tpl');

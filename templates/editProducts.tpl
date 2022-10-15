@@ -45,7 +45,7 @@
                   <option value="{$category->id_categoria}">{$category->categoria}</option>
                 {/foreach}
               </select>
-              <textarea class="form-control card-text mb-2" name="description" value="{$product->descripcion}">{$product->descripcion}</textarea>
+              <textarea rows="5" class="form-control card-text mb-2" name="description" value="{$product->descripcion}">{$product->descripcion}</textarea>
               <input type="hidden" name="id" value="{$product->id_producto}">
               <button class="btn btn-success " type="submit" id="{$product->id_producto}">Editar</button>
            </form>  

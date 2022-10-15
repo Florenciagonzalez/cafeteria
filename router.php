@@ -24,6 +24,10 @@
             $prodController = new ProdController();
             $prodController->showHome();
             break;
+        case 'filter':
+            $prodController = new ProdController();
+            $prodController->showFiltered();
+            break;  
         case 'detail':
             $prodController = new ProdController();
             $prodController->showDetail($params[1]);
@@ -63,12 +67,7 @@
                         break;    
                 }
             }
-        break;
-        case 'filtrar':
-            $prodController = new ProdController();
-            $prodController->showFilteredProds();
-            break;
-                  
+        break;         
         default:
             echo '404 not found';
         break;        
